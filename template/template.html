@@ -1,0 +1,38 @@
+<div class="magicdiv"layout="column" layout-align="center none" layout-wrap flex >
+  
+      <md-card  id = "cardCont"class="cards" ng-repeat = "item in data | filter: query" flex layout="row" layout-align="start stretch">
+        
+        <md-card-title class="card-title" layout = "column" layout-align="space-between stretch" flex="80">
+          
+          <md-card-title-text class = "card-text" layout = "column" layout-align="start" flex >
+            <span class="md-title">{{item.name}}</span>
+            <span class="md-subhead">{{item.price | currency}}</span>
+          </md-card-title-text>
+          
+          <md-card-content test-dir class="card-hide" layout="column" ng-hide="hide" layout-align="start center"  flex>
+            <p class="card-desc">
+            {{item.description}}
+            </p>
+          </md-card-content>
+          
+          <md-card-content ng-hide="hide" layout="row" layout-align="end end" flex>
+            <span class="card-presence" >
+            В наличии: {{ item.presence}}
+            </span>
+          </md-card-content>
+          
+          <md-card-actions class="card-action" layout="row" layout-align="start end" flex>
+            <md-button test-dir ng-click="moreInf($event)"id="btn" >Подробнее</md-button>
+          </md-card-actions>
+          
+        </md-card-title>
+        
+        <md-card-title-media class="card-media" layout="row" layout-align="end start" flex="20">
+          <!--  <div class="md-media-sm card-media" >-->
+            <p class= "img-cont" >
+                <img src={{item.imageUrl}}></img>
+            </p>  
+          <!--  </div>-->
+        </md-card-title-media>
+      </md-card>
+</div>
